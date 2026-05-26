@@ -1,141 +1,346 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EcoVision — Portfólio fotográfico ambiental. Conscientização e preservação da natureza." />
+  <title>EcoVision | Preservação Natural</title>
 
-    <title>EcoVision</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- Fonte -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Ícones -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-    <!-- NAVBAR -->
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">EcoVision</span>
+      </a>
 
-    <nav>
-        <h1>EcoVision</h1>
+      <!-- Menu hamburguer (mobile) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <ul>
-            <li><a href="#galeria">Galeria</a></li>
-            <li><a href="#sobre">Sobre</a></li>
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#galeria" class="nav-link">Galeria</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
-    <!-- HERO -->
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="inicio">
+    <!-- Camadas do hero -->
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
 
-    <section class="hero">
+    <!-- Partículas decorativas -->
+    <div class="hero-particles">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+    </div>
 
-        <div class="hero-overlay">
+    <div class="hero-content">
+      <span class="hero-badge fade-in-up delay-1">🌍 Portfólio Ambiental</span>
+      <h1 class="hero-title fade-in-up delay-2">
+        Preservar é<br />
+        <em>contemplar</em> o futuro.
+      </h1>
+      <p class="hero-text fade-in-up delay-3">
+        Um olhar fotográfico sobre a beleza frágil do nosso planeta — capturado para despertar consciências e inspirar mudanças reais.
+      </p>
+      <a href="#galeria" class="btn-hero fade-in-up delay-4">
+        <span>Explorar Galeria</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
 
-            <h2>Proteja o planeta.</h2>
+    <!-- Indicador de scroll -->
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
 
-            <p>
-                A natureza é o maior patrimônio da humanidade.
-                Preserve hoje para existir amanhã.
-            </p>
+  <!-- ========== GALERIA ========== -->
+  <section class="galeria" id="galeria">
+    <div class="section-container">
 
-            <a href="#galeria" class="btn">
-                Explorar Galeria
-            </a>
+      <!-- Cabeçalho da seção -->
+      <div class="section-header reveal">
+        <span class="section-tag">📸 Fotografia</span>
+        <h2 class="section-title">Galeria Natural</h2>
+        <p class="section-subtitle">
+          Cada imagem é um convite à reflexão sobre a beleza que precisamos proteger.
+        </p>
+      </div>
 
+      <!-- Grid de cards -->
+      <div class="gallery-grid">
+
+        <!--
+          ┌─────────────────────────────────────────────────────────┐
+          │  COMO SUBSTITUIR AS IMAGENS:                            │
+          │  1. Coloque suas fotos na pasta  img/                   │
+          │  2. Em cada <img>, troque o src="img/foto1.jpg"         │
+          │     pelo nome do seu arquivo.                           │
+          │  3. Atualize o atributo alt="..." com uma descrição     │
+          │     da sua foto (importante para acessibilidade).       │
+          │  4. Atualize o título do card (card-title) conforme     │
+          │     o tema da sua foto.                                 │
+          └─────────────────────────────────────────────────────────┘
+        -->
+
+        <!-- Card 1 — substitua pela sua foto -->
+        <article class="gallery-card reveal" style="--delay: 0.1s">
+          <div class="card-image">
+            <!-- SUBSTITUA: src="img/foto1.jpg" e o alt com descrição da sua foto -->
+            <img
+              src="img/foto1.jpg"
+              alt="Descrição da sua foto 1"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('img-placeholder')"
+            />
+            <div class="card-placeholder-label">📷 img/foto1.jpg</div>
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- SUBSTITUA: coloque o título da sua foto -->
+            <h3 class="card-title">Título da Foto 1</h3>
+          </div>
+        </article>
+
+        <!-- Card 2 — substitua pela sua foto -->
+        <article class="gallery-card reveal" style="--delay: 0.2s">
+          <div class="card-image">
+            <!-- SUBSTITUA: src="img/foto2.jpg" e o alt com descrição da sua foto -->
+            <img
+              src="img/foto2.jpg"
+              alt="Descrição da sua foto 2"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('img-placeholder')"
+            />
+            <div class="card-placeholder-label">📷 img/foto2.jpg</div>
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- SUBSTITUA: coloque o título da sua foto -->
+            <h3 class="card-title">Título da Foto 2</h3>
+          </div>
+        </article>
+
+        <!-- Card 3 — substitua pela sua foto -->
+        <article class="gallery-card reveal" style="--delay: 0.3s">
+          <div class="card-image">
+            <!-- SUBSTITUA: src="img/foto3.jpg" e o alt com descrição da sua foto -->
+            <img
+              src="img/foto3.jpg"
+              alt="Descrição da sua foto 3"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('img-placeholder')"
+            />
+            <div class="card-placeholder-label">📷 img/foto3.jpg</div>
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- SUBSTITUA: coloque o título da sua foto -->
+            <h3 class="card-title">Título da Foto 3</h3>
+          </div>
+        </article>
+
+        <!-- Card 4 — substitua pela sua foto -->
+        <article class="gallery-card reveal" style="--delay: 0.15s">
+          <div class="card-image">
+            <!-- SUBSTITUA: src="img/foto4.jpg" e o alt com descrição da sua foto -->
+            <img
+              src="img/foto4.jpg"
+              alt="Descrição da sua foto 4"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('img-placeholder')"
+            />
+            <div class="card-placeholder-label">📷 img/foto4.jpg</div>
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- SUBSTITUA: coloque o título da sua foto -->
+            <h3 class="card-title">Título da Foto 4</h3>
+          </div>
+        </article>
+
+        <!-- Card 5 — substitua pela sua foto -->
+        <article class="gallery-card reveal" style="--delay: 0.25s">
+          <div class="card-image">
+            <!-- SUBSTITUA: src="img/foto5.jpg" e o alt com descrição da sua foto -->
+            <img
+              src="img/foto5.jpg"
+              alt="Descrição da sua foto 5"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('img-placeholder')"
+            />
+            <div class="card-placeholder-label">📷 img/foto5.jpg</div>
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- SUBSTITUA: coloque o título da sua foto -->
+            <h3 class="card-title">Título da Foto 5</h3>
+          </div>
+        </article>
+
+        <!-- Card 6 — substitua pela sua foto -->
+        <article class="gallery-card reveal" style="--delay: 0.35s">
+          <div class="card-image">
+            <!-- SUBSTITUA: src="img/foto6.jpg" e o alt com descrição da sua foto -->
+            <img
+              src="img/foto6.jpg"
+              alt="Descrição da sua foto 6"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('img-placeholder')"
+            />
+            <div class="card-placeholder-label">📷 img/foto6.jpg</div>
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- SUBSTITUA: coloque o título da sua foto -->
+            <h3 class="card-title">Título da Foto 6</h3>
+          </div>
+        </article>
+
+      </div><!-- /gallery-grid -->
+    </div><!-- /section-container -->
+  </section>
+
+  <!-- ========== SOBRE ========== -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <div class="section-container">
+      <div class="sobre-inner reveal">
+
+        <div class="sobre-icon-wrap">
+          <div class="sobre-icon">🌱</div>
         </div>
 
-    </section>
+        <span class="section-tag light">O Projeto</span>
+        <h2 class="sobre-title">Por que o EcoVision?</h2>
+        <p class="sobre-lead">
+          Este portfólio nasceu de uma convicção: a arte fotográfica pode ser o gatilho que move consciências onde palavras não chegam.
+        </p>
 
-    <!-- GALERIA -->
-
-    <section class="galeria" id="galeria">
-
-        <div class="titulo">
-            <h2>Galeria Ambiental</h2>
-            <p>Fotografias que representam a beleza da natureza.</p>
+        <div class="sobre-cards">
+          <div class="sobre-card">
+            <div class="sobre-card-icon">📷</div>
+            <h4>Fotografia Consciente</h4>
+            <p>Imagens cuidadosamente selecionadas para representar a diversidade e a fragilidade dos ecossistemas terrestres.</p>
+          </div>
+          <div class="sobre-card">
+            <div class="sobre-card-icon">🎓</div>
+            <h4>Projeto Acadêmico</h4>
+            <p>Desenvolvido como estudo prático de Interação Humano-Computador, aplicando princípios de usabilidade e design centrado no usuário.</p>
+          </div>
+          <div class="sobre-card">
+            <div class="sobre-card-icon">🤝</div>
+            <h4>Impacto Real</h4>
+            <p>Cada visualização é um passo — a consciência coletiva começa no indivíduo que para e contempla o que está em risco.</p>
+          </div>
         </div>
 
-        <div class="grid">
+        <blockquote class="sobre-quote">
+          "A Terra não é uma herança dos nossos pais — é um empréstimo dos nossos filhos."
+          <cite>— Provérbio Indígena</cite>
+        </blockquote>
 
-            <div class="card">
-                <img src="img/img1.webp" alt="">
-            </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="card">
-                <img src="img/img2.jpg" alt="">
-            </div>
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">EcoVision</span>
+      </div>
 
-            <div class="card">
-                <img src="img/img3.jpg" alt="">
-            </div>
+      <p class="footer-tagline">Fotografia que preserva. Arte que conscientiza.</p>
 
-            <div class="card">
-                <img src="img/img4.jpg" alt="">
-            </div>
+      <div class="footer-social">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter / X">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
 
-            <div class="card">
-                <img src="img/img5.png" alt="">
-            </div>
+      <div class="footer-nav">
+        <a href="#galeria">Galeria</a>
+        <span>·</span>
+        <a href="#sobre">Sobre</a>
+      </div>
 
-        </div>
+      <p class="footer-copy">
+        &copy; 2025 EcoVision — Desenvolvido para IHC. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
 
-    </section>
+  <!-- ========== BOTÃO VOLTAR AO TOPO ========== -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-    <!-- SOBRE -->
-
-    <section class="sobre" id="sobre">
-
-        <div class="conteudo">
-
-            <h2>Sobre o Projeto</h2>
-
-            <p>
-                Este site foi desenvolvido para conscientizar sobre a importância
-                da preservação ambiental utilizando imagens inspiradoras da natureza.
-                O objetivo é criar uma experiência visual agradável e intuitiva,
-                aplicando conceitos de Interação Humano Computador.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="footer-content">
-
-            <h3>EcoVision</h3>
-
-            <p>Projeto acadêmico - IHC</p>
-
-            <div class="social">
-
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-linkedin"></i>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-    <!-- BOTÃO TOPO -->
-
-    <button id="topBtn">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <script src="js/script.js"></script>
-
+  <!-- Script -->
+  <script src="js/script.js"></script>
 </body>
-
 </html>

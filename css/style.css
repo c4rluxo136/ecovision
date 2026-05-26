@@ -1,0 +1,320 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #F5F5F5;
+    color: #222;
+}
+
+/* NAVBAR */
+
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 60px;
+
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+
+    z-index: 1000;
+}
+
+nav h1{
+    color: white;
+    font-size: 30px;
+}
+
+nav ul{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+nav a:hover{
+    color: #A3B18A;
+}
+
+/* HERO */
+
+.hero{
+    height: 100vh;
+
+    background-image: url('../img/img1.webp');
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+}
+
+.hero-overlay{
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.55);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+
+    padding: 20px;
+}
+
+.hero h2{
+    font-size: 70px;
+    margin-bottom: 20px;
+
+    animation: fadeDown 1s ease;
+}
+
+.hero p{
+    font-size: 20px;
+    max-width: 700px;
+    line-height: 1.8;
+
+    animation: fadeUp 1s ease;
+}
+
+.btn{
+    margin-top: 30px;
+
+    background: #588157;
+    color: white;
+
+    padding: 15px 35px;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background: #3A5A40;
+    transform: scale(1.05);
+}
+
+/* GALERIA */
+
+.galeria{
+    padding: 100px 8%;
+}
+
+.titulo{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo h2{
+    font-size: 45px;
+    color: #344E41;
+}
+
+.titulo p{
+    margin-top: 10px;
+    color: #666;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 30px;
+}
+
+.card{
+    overflow: hidden;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+.card img{
+    width: 100%;
+    height: 350px;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.card:hover img{
+    transform: scale(1.1);
+}
+
+/* SOBRE */
+
+.sobre{
+    background: linear-gradient(to right,#344E41,#588157);
+
+    padding: 100px 10%;
+
+    color: white;
+}
+
+.conteudo{
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.conteudo h2{
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+
+.conteudo p{
+    line-height: 2;
+    font-size: 18px;
+}
+
+/* FOOTER */
+
+footer{
+    background: #1B1B1B;
+    color: white;
+
+    padding: 40px 20px;
+}
+
+.footer-content{
+    text-align: center;
+}
+
+.footer-content h3{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.social{
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social i{
+    font-size: 25px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.social i:hover{
+    color: #A3B18A;
+    transform: translateY(-5px);
+}
+
+/* BOTÃO TOPO */
+
+#topBtn{
+    position: fixed;
+
+    bottom: 30px;
+    right: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #588157;
+    color: white;
+
+    cursor: pointer;
+
+    display: none;
+
+    font-size: 18px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+    transition: 0.3s;
+}
+
+#topBtn:hover{
+    background: #344E41;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes fadeDown{
+    from{
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    nav{
+        padding: 20px;
+    }
+
+    nav ul{
+        gap: 15px;
+    }
+
+    .hero h2{
+        font-size: 45px;
+    }
+
+    .hero p{
+        font-size: 16px;
+    }
+
+    .titulo h2,
+    .conteudo h2{
+        font-size: 35px;
+    }
+
+}

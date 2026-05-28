@@ -2,247 +2,201 @@
  * EcoVision — script.js
  * Portfólio Fotográfico Ambiental | IHC Project
  *
- * Funcionalidades:
- *  - Navbar com blur/cor ao scroll
- *  - Parallax suave no hero
- *  - Reveal animado ao scroll (IntersectionObserver)
- *  - Botão "voltar ao topo"
- *  - Menu hamburguer responsivo
- *  - Scroll suave para âncoras
- *  - Feedback do formulário de contato
+ * Módulos:
+ *  1. Navbar — muda aparência ao scroll
+ *  2. Tema   — alterna modo escuro/claro com persistência
+ *  3. Menu   — hamburguer responsivo
+ *  4. Parallax — efeito de profundidade no hero
+ *  5. Scroll Reveal — animação de entrada via IntersectionObserver
+ *  6. Voltar ao Topo — botão flutuante
+ *  7. Scroll Suave — âncoras internas
+ *  8. Galeria A11y — acessibilidade via teclado
  */
 
 'use strict';
 
-/* ============================================================
-   UTILITÁRIOS
-   ============================================================ */
-
-/** Seleciona elemento(s) com segurança */
-const $ = (sel, ctx = document) => ctx.querySelector(sel);
+const $  = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-
 /* ============================================================
-   NAVBAR — mudança ao scroll
+   1. NAVBAR — cor/blur ao rolar
    ============================================================ */
 (function initNavbar() {
   const navbar = $('#navbar');
   if (!navbar) return;
 
-  const SCROLL_THRESHOLD = 60; // px até ativar o estado scrolled
+  const update = () =>
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
 
-  function onScroll() {
-    if (window.scrollY > SCROLL_THRESHOLD) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }
-
-  // Verificação inicial (caso página carregue com scroll)
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  update();
+  window.addEventListener('scroll', update, { passive: true });
 })();
 
+/* ============================================================
+   2. TEMA — modo escuro / claro com localStorage
+   ============================================================ */
+(function initTheme() {
+  const html   = document.documentElement;
+  const btn    = $('#themeToggle');
+  if (!btn) return;
+
+  /* Recupera preferência salva ou usa preferência do sistema */
+  const saved  = localStorage.getItem('ecovision-theme');
+  const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const initial = saved || system;
+
+  html.setAttribute('data-theme', initial);
+
+  btn.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next    = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('ecovision-theme', next);
+  });
+})();
 
 /* ============================================================
-   MENU HAMBURGUER (mobile)
+   3. MENU HAMBURGUER
    ============================================================ */
 (function initMobileMenu() {
   const toggle = $('#navToggle');
   const menu   = $('#navMenu');
   if (!toggle || !menu) return;
 
-  function closeMenu() {
+  const open  = () => {
+    toggle.classList.add('active');
+    menu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    toggle.setAttribute('aria-expanded', 'true');
+  };
+
+  const close = () => {
     toggle.classList.remove('active');
     menu.classList.remove('open');
     document.body.style.overflow = '';
     toggle.setAttribute('aria-expanded', 'false');
-  }
+  };
 
-  function openMenu() {
-    toggle.classList.add('active');
-    menu.classList.add('open');
-    document.body.style.overflow = 'hidden'; // evita scroll enquanto menu aberto
-    toggle.setAttribute('aria-expanded', 'true');
-  }
+  toggle.addEventListener('click', () =>
+    menu.classList.contains('open') ? close() : open());
 
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.contains('open');
-    isOpen ? closeMenu() : openMenu();
+  /* Fecha ao clicar em link */
+  $$('.nav-link', menu).forEach(l => l.addEventListener('click', close));
+
+  /* Fecha ao clicar fora */
+  document.addEventListener('click', e => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) close();
   });
 
-  // Fechar ao clicar em um link
-  $$('.nav-link', menu).forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Fechar ao clicar fora do menu
-  document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      closeMenu();
-    }
-  });
-
-  // Fechar ao pressionar ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+  /* Fecha com ESC */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') close();
   });
 })();
 
-
 /* ============================================================
-   PARALLAX HERO
+   4. PARALLAX HERO
    ============================================================ */
 (function initParallax() {
-  const heroBg = $('.hero-bg');
-  if (!heroBg) return;
+  const bg = $('.hero-bg');
+  if (!bg) return;
 
-  // Parallax desativado em mobile (performance)
   const mq = window.matchMedia('(min-width: 769px)');
 
-  function handleParallax() {
-    if (!mq.matches) return;
-    const scrolled = window.scrollY;
-    // Move o fundo a 40% da velocidade do scroll
-    heroBg.style.transform = `translateY(${scrolled * 0.4}px)`;
-  }
+  const run = () => {
+    if (mq.matches)
+      bg.style.transform = `translateY(${window.scrollY * 0.38}px)`;
+  };
 
-  window.addEventListener('scroll', handleParallax, { passive: true });
+  window.addEventListener('scroll', run, { passive: true });
 })();
 
-
 /* ============================================================
-   SCROLL REVEAL (IntersectionObserver)
+   5. SCROLL REVEAL
    ============================================================ */
 (function initScrollReveal() {
-  const elements = $$('.reveal');
-  if (!elements.length) return;
+  const els = $$('.reveal');
+  if (!els.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Para de observar após revelar (performance)
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,      // 12% visível já aciona
-      rootMargin: '0px 0px -40px 0px', // margem de antecipação
-    }
-  );
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
 
-  elements.forEach(el => observer.observe(el));
+  els.forEach(el => observer.observe(el));
 })();
 
-
 /* ============================================================
-   BOTÃO VOLTAR AO TOPO
+   6. BOTÃO VOLTAR AO TOPO
    ============================================================ */
 (function initBackToTop() {
   const btn = $('#backToTop');
   if (!btn) return;
 
-  const SHOW_THRESHOLD = 400; // px de scroll para mostrar o botão
+  const update = () =>
+    btn.classList.toggle('visible', window.scrollY > 400);
 
-  function onScroll() {
-    if (window.scrollY > SHOW_THRESHOLD) {
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
-  }
+  btn.addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // verificação inicial
+  window.addEventListener('scroll', update, { passive: true });
+  update();
 })();
 
-
 /* ============================================================
-   SCROLL SUAVE PARA ÂNCORAS
+   7. SCROLL SUAVE — âncoras internas
    ============================================================ */
 (function initSmoothScroll() {
   $$('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href');
-      if (targetId === '#') {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+
+      if (id === '#') {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
 
-      const target = $(targetId);
+      const target = $(id);
       if (!target) return;
 
       e.preventDefault();
-
-      const navbarH = $('#navbar')?.offsetHeight || 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - navbarH;
-
+      const offset = ($('#navbar')?.offsetHeight || 80);
+      const top    = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 })();
 
-
 /* ============================================================
-   GALERIA — destaque de card ao abrir pelo teclado
-   ============================================================ */
-
-
-/* ============================================================
-   CARDS DA GALERIA — acessibilidade com teclado
+   8. GALERIA — acessibilidade por teclado
    ============================================================ */
 (function initGalleryA11y() {
   $$('.gallery-card').forEach(card => {
-    // Permite foco via teclado
     card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
 
-    // Ativa hover via teclado (Enter / Space)
-    card.addEventListener('keydown', (e) => {
+    card.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         card.classList.toggle('keyboard-focus');
       }
     });
+
+    card.addEventListener('blur', () =>
+      card.classList.remove('keyboard-focus'));
   });
 })();
 
-
 /* ============================================================
-   ANIMAÇÃO DE COUNTERS (opcional, caso adicione stats)
-   ============================================================ */
-function animateCounter(el, target, duration = 1800) {
-  let start = 0;
-  const step = (timestamp) => {
-    if (!start) start = timestamp;
-    const progress = Math.min((timestamp - start) / duration, 1);
-    // Easing out cubic
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(eased * target);
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target;
-  };
-  requestAnimationFrame(step);
-}
-
-/* Expõe para uso externo caso necessário */
-window.EcoVision = { animateCounter };
-
-
-/* ============================================================
-   LOG DE INICIALIZAÇÃO (debug amigável)
+   LOG
    ============================================================ */
 console.log(
-  '%c🌿 EcoVision%c carregado com sucesso!',
-  'color: #588157; font-weight: bold; font-size: 1.1rem;',
-  'color: #A3B18A; font-size: 1rem;'
+  '%c🌿 EcoVision%c iniciado com sucesso!',
+  'color:#588157;font-weight:700;font-size:1.1rem;',
+  'color:#A3B18A;font-size:1rem;'
 );

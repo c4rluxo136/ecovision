@@ -1,89 +1,72 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="EcoVision — Portfólio fotográfico ambiental. Conscientização e preservação da natureza." />
   <title>EcoVision | Preservação Natural</title>
-
-  <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ========== NAVBAR ========== -->
+  
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#" class="nav-logo">
         <span class="logo-icon">🌿</span>
         <span class="logo-text">EcoVision</span>
       </a>
-
-      <!-- Menu hamburguer (mobile) -->
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="nav-menu" id="navMenu">
-        <ul class="nav-list">
-          <li><a href="#galeria" class="nav-link">Galeria</a></li>
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-        </ul>
-      </nav>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo escuro/claro" title="Alternar tema">
+          <span class="theme-icon theme-icon--sun"><i class="fa-solid fa-sun"></i></span>
+          <span class="theme-icon theme-icon--moon"><i class="fa-solid fa-moon"></i></span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-menu" id="navMenu">
+          <ul class="nav-list">
+            <li><a href="#galeria" class="nav-link">Galeria</a></li>
+            <li><a href="#sobre"   class="nav-link">Sobre</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- ========== HERO SECTION ========== -->
+  
   <section class="hero" id="inicio">
-    <!-- Camadas do hero -->
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
-
-    <!-- Partículas decorativas -->
     <div class="hero-particles">
-      <div class="particle p1"></div>
-      <div class="particle p2"></div>
-      <div class="particle p3"></div>
-      <div class="particle p4"></div>
+      <div class="particle p1"></div><div class="particle p2"></div>
+      <div class="particle p3"></div><div class="particle p4"></div>
       <div class="particle p5"></div>
     </div>
-
     <div class="hero-content">
       <span class="hero-badge fade-in-up delay-1">🌍 Portfólio Ambiental</span>
       <h1 class="hero-title fade-in-up delay-2">
-        Preservar é<br />
-        <em>contemplar</em> o futuro.
+        Preservar é<br /><em>contemplar</em> o futuro.
       </h1>
       <p class="hero-text fade-in-up delay-3">
-        Um olhar fotográfico sobre a beleza frágil do nosso planeta — capturado para despertar consciências e inspirar mudanças reais.
+        Um olhar fotográfico sobre a beleza frágil do nosso planeta —
+        capturado para despertar consciências e inspirar mudanças reais.
       </p>
       <a href="#galeria" class="btn-hero fade-in-up delay-4">
         <span>Explorar Galeria</span>
         <i class="fa-solid fa-arrow-down"></i>
       </a>
     </div>
-
-    <!-- Indicador de scroll -->
-    <div class="scroll-indicator">
-      <div class="scroll-dot"></div>
-    </div>
+    <div class="scroll-indicator"><div class="scroll-dot"></div></div>
   </section>
 
-  <!-- ========== GALERIA ========== -->
+ 
   <section class="galeria" id="galeria">
     <div class="section-container">
-
-      <!-- Cabeçalho da seção -->
       <div class="section-header reveal">
         <span class="section-tag">📸 Fotografia</span>
         <h2 class="section-title">Galeria Natural</h2>
@@ -92,255 +75,445 @@
         </p>
       </div>
 
-      <!-- Grid de cards -->
+     
       <div class="gallery-grid">
 
-        <!--
-          ┌─────────────────────────────────────────────────────────┐
-          │  COMO SUBSTITUIR AS IMAGENS:                            │
-          │  1. Coloque suas fotos na pasta  img/                   │
-          │  2. Em cada <img>, troque o src="img/foto1.jpg"         │
-          │     pelo nome do seu arquivo.                           │
-          │  3. Atualize o atributo alt="..." com uma descrição     │
-          │     da sua foto (importante para acessibilidade).       │
-          │  4. Atualize o título do card (card-title) conforme     │
-          │     o tema da sua foto.                                 │
-          └─────────────────────────────────────────────────────────┘
-        -->
-
-        <!-- Card 1 — substitua pela sua foto -->
-        <article class="gallery-card reveal" style="--delay: 0.1s">
+     
+        <article class="gallery-card reveal" style="--delay:.05s">
           <div class="card-image">
-            <!-- SUBSTITUA: src="img/foto1.jpg" e o alt com descrição da sua foto -->
-            <img
-              src="img/foto1.jpg"
-              alt="Descrição da sua foto 1"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-placeholder')"
-            />
+            <img src="img/fatec-img1.png" alt="Descrição da foto 1" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
             <div class="card-placeholder-label">📷 img/foto1.jpg</div>
-            <div class="card-overlay">
-              <div class="card-overlay-content">
-                <i class="fa-solid fa-magnifying-glass-plus"></i>
-              </div>
-            </div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
           </div>
-          <div class="card-body">
-            <!-- SUBSTITUA: coloque o título da sua foto -->
-            <h3 class="card-title">Título da Foto 1</h3>
-          </div>
+          <div class="card-body"><h1 class="card-title">Céu em Chamas</h1></div>
+          <div class="card-body"><h2 class="card-title">Fotográfos:​Emerson Barbosa📸​</h2></div>
         </article>
 
-        <!-- Card 2 — substitua pela sua foto -->
-        <article class="gallery-card reveal" style="--delay: 0.2s">
+    
+        <article class="gallery-card reveal" style="--delay:.10s">
           <div class="card-image">
-            <!-- SUBSTITUA: src="img/foto2.jpg" e o alt com descrição da sua foto -->
-            <img
-              src="img/foto2.jpg"
-              alt="Descrição da sua foto 2"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-placeholder')"
-            />
+            <img src="img/fatec-img2.png" alt="Descrição da foto 2" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
             <div class="card-placeholder-label">📷 img/foto2.jpg</div>
-            <div class="card-overlay">
-              <div class="card-overlay-content">
-                <i class="fa-solid fa-magnifying-glass-plus"></i>
-              </div>
-            </div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
           </div>
-          <div class="card-body">
-            <!-- SUBSTITUA: coloque o título da sua foto -->
-            <h3 class="card-title">Título da Foto 2</h3>
-          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 2</h3></div>
         </article>
 
-        <!-- Card 3 — substitua pela sua foto -->
-        <article class="gallery-card reveal" style="--delay: 0.3s">
+      
+        <article class="gallery-card reveal" style="--delay:.15s">
           <div class="card-image">
-            <!-- SUBSTITUA: src="img/foto3.jpg" e o alt com descrição da sua foto -->
-            <img
-              src="img/foto3.jpg"
-              alt="Descrição da sua foto 3"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-placeholder')"
-            />
+            <img src="img/fatec-img3.png" alt="Descrição da foto 3" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
             <div class="card-placeholder-label">📷 img/foto3.jpg</div>
-            <div class="card-overlay">
-              <div class="card-overlay-content">
-                <i class="fa-solid fa-magnifying-glass-plus"></i>
-              </div>
-            </div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
           </div>
-          <div class="card-body">
-            <!-- SUBSTITUA: coloque o título da sua foto -->
-            <h3 class="card-title">Título da Foto 3</h3>
-          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 3</h3></div>
         </article>
 
-        <!-- Card 4 — substitua pela sua foto -->
-        <article class="gallery-card reveal" style="--delay: 0.15s">
+      
+        <article class="gallery-card reveal" style="--delay:.20s">
           <div class="card-image">
-            <!-- SUBSTITUA: src="img/foto4.jpg" e o alt com descrição da sua foto -->
-            <img
-              src="img/foto4.jpg"
-              alt="Descrição da sua foto 4"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-placeholder')"
-            />
+            <img src="img/fatec-img4.jpeg" alt="Descrição da foto 4" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
             <div class="card-placeholder-label">📷 img/foto4.jpg</div>
-            <div class="card-overlay">
-              <div class="card-overlay-content">
-                <i class="fa-solid fa-magnifying-glass-plus"></i>
-              </div>
-            </div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
           </div>
-          <div class="card-body">
-            <!-- SUBSTITUA: coloque o título da sua foto -->
-            <h3 class="card-title">Título da Foto 4</h3>
-          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 4</h3></div>
         </article>
 
-        <!-- Card 5 — substitua pela sua foto -->
-        <article class="gallery-card reveal" style="--delay: 0.25s">
+        
+        <article class="gallery-card reveal" style="--delay:.25s">
           <div class="card-image">
-            <!-- SUBSTITUA: src="img/foto5.jpg" e o alt com descrição da sua foto -->
-            <img
-              src="img/foto5.jpg"
-              alt="Descrição da sua foto 5"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-placeholder')"
-            />
+            <img src="img/fatec-img5.jpeg" alt="Descrição da foto 5" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
             <div class="card-placeholder-label">📷 img/foto5.jpg</div>
-            <div class="card-overlay">
-              <div class="card-overlay-content">
-                <i class="fa-solid fa-magnifying-glass-plus"></i>
-              </div>
-            </div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
           </div>
-          <div class="card-body">
-            <!-- SUBSTITUA: coloque o título da sua foto -->
-            <h3 class="card-title">Título da Foto 5</h3>
-          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 5</h3></div>
         </article>
 
-        <!-- Card 6 — substitua pela sua foto -->
-        <article class="gallery-card reveal" style="--delay: 0.35s">
+        
+        <article class="gallery-card reveal" style="--delay:.30s">
           <div class="card-image">
-            <!-- SUBSTITUA: src="img/foto6.jpg" e o alt com descrição da sua foto -->
-            <img
-              src="img/foto6.jpg"
-              alt="Descrição da sua foto 6"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-placeholder')"
-            />
+            <img src="img/fatec-img6.jpeg" alt="Descrição da foto 6" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
             <div class="card-placeholder-label">📷 img/foto6.jpg</div>
-            <div class="card-overlay">
-              <div class="card-overlay-content">
-                <i class="fa-solid fa-magnifying-glass-plus"></i>
-              </div>
-            </div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
           </div>
-          <div class="card-body">
-            <!-- SUBSTITUA: coloque o título da sua foto -->
-            <h3 class="card-title">Título da Foto 6</h3>
-          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 6</h3></div>
         </article>
 
-      </div><!-- /gallery-grid -->
-    </div><!-- /section-container -->
+      
+        <article class="gallery-card reveal" style="--delay:.35s">
+          <div class="card-image">
+            <img src="img/fatec-img7.jpeg" alt="Descrição da foto 7" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
+            <div class="card-placeholder-label">📷 img/foto7.jpg</div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 7</h3></div>
+        </article>
+
+       
+        <article class="gallery-card reveal" style="--delay:.40s">
+          <div class="card-image">
+            <img src="img/foto8.jpg" alt="Descrição da foto 8" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
+            <div class="card-placeholder-label">📷 img/foto8.jpg</div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 8</h3></div>
+        </article>
+
+       
+        <article class="gallery-card reveal" style="--delay:.45s">
+          <div class="card-image">
+            <img src="img/foto9.jpg" alt="Descrição da foto 9" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
+            <div class="card-placeholder-label">📷 img/foto9.jpg</div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 9</h3></div>
+        </article>
+
+      
+        <article class="gallery-card reveal gallery-card--featured" style="--delay:.50s">
+          <div class="card-image">
+            <img src="img/foto10.jpg" alt="Descrição da foto 10" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-placeholder')"/>
+            <div class="card-placeholder-label">📷 img/foto10.jpg</div>
+            <div class="card-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+          <div class="card-body"><h3 class="card-title">Título da Foto 10</h3></div>
+        </article>
+
+      </div>
+    </div>
   </section>
 
-  <!-- ========== SOBRE ========== -->
+  
   <section class="sobre" id="sobre">
     <div class="sobre-bg-shapes">
       <div class="shape shape-1"></div>
       <div class="shape shape-2"></div>
       <div class="shape shape-3"></div>
     </div>
-
     <div class="section-container">
-      <div class="sobre-inner reveal">
+      <div class="sobre-inner">
 
-        <div class="sobre-icon-wrap">
-          <div class="sobre-icon">🌱</div>
+       
+        <div class="sobre-header reveal">
+          <div class="sobre-icon-wrap">
+            <div class="sobre-icon">🌱</div>
+          </div>
+          <span class="section-tag light">O Projeto</span>
+          <h2 class="sobre-title">Sobre o EcoVision</h2>
+          <p class="sobre-lead">
+            Portfólio fotográfico desenvolvido para a disciplina de
+            <strong>Interação Humano-Computador (IHC)</strong> em celebração ao
+            <strong>Dia Mundial do Meio Ambiente — 5 de junho</strong>, data instituída
+            pela ONU para promover conscientização, sustentabilidade e respeito ao planeta.
+          </p>
         </div>
 
-        <span class="section-tag light">O Projeto</span>
-        <h2 class="sobre-title">Por que o EcoVision?</h2>
-        <p class="sobre-lead">
-          Este portfólio nasceu de uma convicção: a arte fotográfica pode ser o gatilho que move consciências onde palavras não chegam.
-        </p>
+      
+        <div class="sobre-divider reveal">
+          <span>Estrutura do Projeto</span>
+        </div>
 
-        <div class="sobre-cards">
-          <div class="sobre-card">
-            <div class="sobre-card-icon">📷</div>
-            <h4>Fotografia Consciente</h4>
-            <p>Imagens cuidadosamente selecionadas para representar a diversidade e a fragilidade dos ecossistemas terrestres.</p>
-          </div>
-          <div class="sobre-card">
-            <div class="sobre-card-icon">🎓</div>
-            <h4>Projeto Acadêmico</h4>
-            <p>Desenvolvido como estudo prático de Interação Humano-Computador, aplicando princípios de usabilidade e design centrado no usuário.</p>
-          </div>
-          <div class="sobre-card">
-            <div class="sobre-card-icon">🤝</div>
-            <h4>Impacto Real</h4>
-            <p>Cada visualização é um passo — a consciência coletiva começa no indivíduo que para e contempla o que está em risco.</p>
+        
+        <div class="sobre-block reveal">
+          <div class="sobre-block-icon">🎯</div>
+          <div class="sobre-block-content">
+            <h3>Objetivo</h3>
+            <p>
+              Criar um site de portfólio fotográfico para expor imagens relacionadas ao meio ambiente,
+              unindo estética moderna e princípios de IHC. O projeto busca sensibilizar o visitante
+              por meio da fotografia — linguagem universal que comunica onde palavras não chegam.
+            </p>
           </div>
         </div>
 
-        <blockquote class="sobre-quote">
-          "A Terra não é uma herança dos nossos pais — é um empréstimo dos nossos filhos."
-          <cite>— Provérbio Indígena</cite>
-        </blockquote>
+        
+        <div class="sobre-tech-grid reveal">
 
-      </div>
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <div class="tech-card-body">
+              <h4>HTML5</h4>
+              <p>Estrutura semântica com tags como <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>,
+              <code>&lt;article&gt;</code> e <code>&lt;footer&gt;</code> para acessibilidade e SEO.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+            <div class="tech-card-body">
+              <h4>CSS3</h4>
+              <p>Variáveis CSS, Grid Layout, Flexbox, animações com <code>@keyframes</code>,
+              transições suaves e media queries para responsividade total.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <i class="fa-brands fa-js"></i>
+            </div>
+            <div class="tech-card-body">
+              <h4>JavaScript ES6+</h4>
+              <p>Código puro sem frameworks: módulos IIFE, <code>IntersectionObserver</code>,
+              scroll events, manipulação do DOM e localStorage para persistência do tema.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <i class="fa-solid fa-font"></i>
+            </div>
+            <div class="tech-card-body">
+              <h4>Google Fonts</h4>
+              <p>Tipografia <strong>Poppins</strong> (Light, Regular, SemiBold, Bold e Black)
+              para hierarquia visual clara e leiturabilidade confortável em qualquer tela.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <i class="fa-solid fa-icons"></i>
+            </div>
+            <div class="tech-card-body">
+              <h4>Font Awesome 6</h4>
+              <p>Biblioteca de ícones SVG via CDN para representação visual de ações,
+              navegação e elementos decorativos com consistência e acessibilidade.</p>
+            </div>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="tech-card-body">
+              <h4>GitHub</h4>
+              <p>Controle de versão e hospedagem do repositório. Estrutura de pastas
+              organizada em <code>css/</code>, <code>js/</code> e <code>img/</code>
+              conforme exigido pela atividade.</p>
+            </div>
+          </div>
+
+        </div>
+
+        
+        <div class="sobre-divider reveal">
+          <span>Componentes & Funcionalidades</span>
+        </div>
+
+       
+        <div class="sobre-components reveal">
+
+          <div class="component-item">
+            <div class="component-dot"></div>
+            <div>
+              <strong>Navbar Fixa com Blur</strong>
+              <span>Barra de navegação transparente que ganha fundo escuro com
+              <em>backdrop-filter: blur</em> ao rolar a página, mantendo legibilidade.</span>
+            </div>
+          </div>
+
+          <div class="component-item">
+            <div class="component-dot"></div>
+            <div>
+              <strong>Hero Section com Parallax</strong>
+              <span>Seção principal com imagem de fundo em efeito parallax suave,
+              overlay gradiente, partículas animadas e animações de entrada escalonadas.</span>
+            </div>
+          </div>
+
+          <div class="component-item">
+            <div class="component-dot"></div>
+            <div>
+              <strong>Galeria em Grid Responsivo</strong>
+              <span>10 cards fotográficos organizados em grid de 3 colunas (desktop),
+              2 (tablet) e 1 (mobile), com hover zoom, overlay e título centralizado.</span>
+            </div>
+          </div>
+
+          <div class="component-item">
+            <div class="component-dot"></div>
+            <div>
+              <strong>Modo Escuro / Claro</strong>
+              <span>Alternância de tema via atributo <code>data-theme</code> no HTML,
+              com persistência em <code>localStorage</code> e transição suave entre paletas.</span>
+            </div>
+          </div>
+
+          <div class="component-item">
+            <div class="component-dot"></div>
+            <div>
+              <strong>Scroll Reveal (IntersectionObserver)</strong>
+              <span>Elementos entram na tela com animação de fade + slide ao serem
+              detectados pelo <code>IntersectionObserver</code> nativo do navegador.</span>
+            </div>
+          </div>
+
+          <div class="component-item">
+            <div class="component-dot"></div>
+            <div>
+              <strong>Menu Hamburguer (Mobile)</strong>
+              <span>Menu lateral responsivo com animação de abertura/fechamento,
+              bloqueio de scroll e fechamento por clique fora ou tecla ESC.</span>
+            </div>
+          </div>
+
+          <div class="component-item">
+            <div class="component-dot"></div>
+            <div>
+              <strong>Botão Voltar ao Topo</strong>
+              <span>Aparece suavemente após 400px de scroll e leva o usuário
+              ao topo com animação fluida via <code>scrollTo({ behavior: 'smooth' })</code>.</span>
+            </div>
+          </div>
+
+          <div class="component-item">
+            <div class="component-dot"></div>
+            <div>
+              <strong>Placeholders de Imagem</strong>
+              <span>Enquanto as fotos reais não são adicionadas, cada card exibe
+              um fundo xadrez com o caminho esperado do arquivo, facilitando a substituição.</span>
+            </div>
+          </div>
+
+        </div>
+
+      
+        <div class="sobre-divider reveal">
+          <span>Decisões de IHC</span>
+        </div>
+
+       
+        <div class="ihc-grid reveal">
+
+          <div class="ihc-card">
+            <div class="ihc-icon">👁️</div>
+            <h4>Visibilidade</h4>
+            <p>Navbar sempre visível, indicador de scroll na hero e botão "voltar ao topo"
+            garantem que o usuário sempre saiba onde está e para onde pode ir.</p>
+          </div>
+
+          <div class="ihc-card">
+            <div class="ihc-icon">💬</div>
+            <h4>Feedback Visual</h4>
+            <p>Hover nos cards, botões e links com mudança de cor, escala e sombra
+            comunicam interatividade imediata ao usuário.</p>
+          </div>
+
+          <div class="ihc-card">
+            <div class="ihc-icon">📐</div>
+            <h4>Hierarquia Visual</h4>
+            <p>Tamanhos de fonte, pesos tipográficos e espaçamentos bem definidos
+            guiam o olhar do visitante do mais importante ao menos importante.</p>
+          </div>
+
+          <div class="ihc-card">
+            <div class="ihc-icon">📱</div>
+            <h4>Responsividade</h4>
+            <p>Layout fluido que se adapta a celulares, tablets e desktops com
+            breakpoints em 480px, 768px e 1024px.</p>
+          </div>
+
+          <div class="ihc-card">
+            <div class="ihc-icon">♿</div>
+            <h4>Acessibilidade</h4>
+            <p>Atributos <code>aria-label</code>, <code>aria-expanded</code>, foco
+            via teclado nos cards e texto alternativo em todas as imagens.</p>
+          </div>
+
+          <div class="ihc-card">
+            <div class="ihc-icon">🌙</div>
+            <h4>Conforto Visual</h4>
+            <p>Modo escuro reduz fadiga ocular em ambientes com pouca luz,
+            preservando a identidade visual e a paleta de cores do projeto.</p>
+          </div>
+
+        </div>
+
+        
+        <div class="sobre-nav-info reveal">
+          <h3 class="sobre-nav-title">
+            <i class="fa-solid fa-map"></i> Como Navegar
+          </h3>
+          <div class="sobre-nav-grid">
+            <div class="sobre-nav-item">
+              <i class="fa-solid fa-bars"></i>
+              <div>
+                <strong>Menu</strong>
+                <span>Links no topo levam direto à Galeria ou ao Sobre.</span>
+              </div>
+            </div>
+            <div class="sobre-nav-item">
+              <i class="fa-solid fa-circle-half-stroke"></i>
+              <div>
+                <strong>Tema</strong>
+                <span>Ícone ☀ / 🌙 na navbar alterna entre modo claro e escuro.</span>
+              </div>
+            </div>
+            <div class="sobre-nav-item">
+              <i class="fa-solid fa-hand-pointer"></i>
+              <div>
+                <strong>Galeria</strong>
+                <span>Passe o mouse sobre as fotos para ver o efeito de destaque.</span>
+              </div>
+            </div>
+            <div class="sobre-nav-item">
+              <i class="fa-solid fa-arrow-up"></i>
+              <div>
+                <strong>Voltar ao Topo</strong>
+                <span>Botão verde no canto inferior direito retorna ao início.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+     
+        <div class="reveal">
+          <blockquote class="sobre-quote">
+            "A Terra não é uma herança dos nossos pais — é um empréstimo dos nossos filhos."
+            <cite>— Provérbio Indígena</cite>
+          </blockquote>
+        </div>
+
+      </div><!-- /sobre-inner -->
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">
         <span class="logo-icon">🌿</span>
         <span class="logo-text">EcoVision</span>
       </div>
-
       <p class="footer-tagline">Fotografia que preserva. Arte que conscientiza.</p>
-
-      <div class="footer-social">
-        <a href="#" class="social-link" aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="#" class="social-link" aria-label="Twitter / X">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-        <a href="#" class="social-link" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-        <a href="#" class="social-link" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-      </div>
-
       <div class="footer-nav">
         <a href="#galeria">Galeria</a>
         <span>·</span>
         <a href="#sobre">Sobre</a>
       </div>
-
       <p class="footer-copy">
-        &copy; 2025 EcoVision — Desenvolvido para IHC. Todos os direitos reservados.
+        &copy; 2026 EcoVision — Desenvolvido para IHC. Todos os direitos reservados.
       </p>
     </div>
   </footer>
 
-  <!-- ========== BOTÃO VOLTAR AO TOPO ========== -->
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- Script -->
   <script src="js/script.js"></script>
 </body>
 </html>

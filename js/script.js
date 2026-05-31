@@ -4,9 +4,7 @@
 const $  = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-/* ============================================================
-   1. NAVBAR — cor/blur ao rolar
-   ============================================================ */
+
 (function initNavbar() {
   const navbar = $('#navbar');
   if (!navbar) return;
@@ -18,15 +16,13 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   window.addEventListener('scroll', update, { passive: true });
 })();
 
-/* ============================================================
-   2. TEMA — modo escuro / claro com localStorage
-   ============================================================ */
+
 (function initTheme() {
   const html   = document.documentElement;
   const btn    = $('#themeToggle');
   if (!btn) return;
 
-  /* Recupera preferência salva ou usa preferência do sistema */
+ 
   const saved  = localStorage.getItem('ecovision-theme');
   const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const initial = saved || system;
@@ -41,9 +37,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   });
 })();
 
-/* ============================================================
-   3. MENU HAMBURGUER
-   ============================================================ */
+
 (function initMobileMenu() {
   const toggle = $('#navToggle');
   const menu   = $('#navMenu');
@@ -66,15 +60,15 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   toggle.addEventListener('click', () =>
     menu.classList.contains('open') ? close() : open());
 
-  /* Fecha ao clicar em link */
+
   $$('.nav-link', menu).forEach(l => l.addEventListener('click', close));
 
-  /* Fecha ao clicar fora */
+  
   document.addEventListener('click', e => {
     if (!menu.contains(e.target) && !toggle.contains(e.target)) close();
   });
 
-  /* Fecha com ESC */
+
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') close();
   });

@@ -1,17 +1,3 @@
-/**
- * EcoVision — script.js
- * Portfólio Fotográfico Ambiental | IHC Project
- *
- * Módulos:
- *  1. Navbar — muda aparência ao scroll
- *  2. Tema   — alterna modo escuro/claro com persistência
- *  3. Menu   — hamburguer responsivo
- *  4. Parallax — efeito de profundidade no hero
- *  5. Scroll Reveal — animação de entrada via IntersectionObserver
- *  6. Voltar ao Topo — botão flutuante
- *  7. Scroll Suave — âncoras internas
- *  8. Galeria A11y — acessibilidade via teclado
- */
 
 'use strict';
 
@@ -94,9 +80,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   });
 })();
 
-/* ============================================================
-   4. PARALLAX HERO
-   ============================================================ */
+
 (function initParallax() {
   const bg = $('.hero-bg');
   if (!bg) return;
@@ -111,9 +95,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   window.addEventListener('scroll', run, { passive: true });
 })();
 
-/* ============================================================
-   5. SCROLL REVEAL
-   ============================================================ */
+
 (function initScrollReveal() {
   const els = $$('.reveal');
   if (!els.length) return;
@@ -130,9 +112,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   els.forEach(el => observer.observe(el));
 })();
 
-/* ============================================================
-   6. BOTÃO VOLTAR AO TOPO
-   ============================================================ */
+
 (function initBackToTop() {
   const btn = $('#backToTop');
   if (!btn) return;
@@ -147,9 +127,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   update();
 })();
 
-/* ============================================================
-   7. SCROLL SUAVE — âncoras internas
-   ============================================================ */
+
 (function initSmoothScroll() {
   $$('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
@@ -172,9 +150,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   });
 })();
 
-/* ============================================================
-   8. GALERIA — acessibilidade por teclado
-   ============================================================ */
+
 (function initGalleryA11y() {
   $$('.gallery-card').forEach(card => {
     card.setAttribute('tabindex', '0');
@@ -192,9 +168,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   });
 })();
 
-/* ============================================================
-   LOG
-   ============================================================ */
+
 console.log(
   '%c🌿 EcoVision%c iniciado com sucesso!',
   'color:#588157;font-weight:700;font-size:1.1rem;',
